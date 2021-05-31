@@ -7,7 +7,7 @@ import Results from './pages/Results';
 import {SearchContext} from './context/search';
 
 function App() {
-  {/* All the anime data we will be receiving from the API */}
+  /* Store all of the anime data we receive from the API here */
   const [animeData, setAnimeData] = useState([]);
   const [singleData, setSingleData] = useState({});
 
@@ -19,12 +19,12 @@ function App() {
     setSingleData(data)
   };
 
-  {/* Search functionality */}
+  /* Search functionality */
   const search = (searchString) => {
     return fetch(
       `https://api.jikan.moe/v3/search/anime?q=${searchString}&limit=20`
     ).then((response) => response.json())
-  }
+  };
 
   return (
     <SearchContext.Provider 

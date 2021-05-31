@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SearchContext } from '../context/search';
 
 const Home = () => {
+    const search = useContext(SearchContext)
+
     return (
         <div>
             Home

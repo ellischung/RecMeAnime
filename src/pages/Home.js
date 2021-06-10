@@ -19,7 +19,14 @@ const Home = () => {
             alignItems="center"
         >
             <Grid item>
-                <Grid item>Image</Grid>
+                <Grid item>
+                    <img 
+                        alt="logo" 
+                        src={`${process.env.PUBLIC_URL}/RecMeAnime-Logo.png`} 
+                        height={150} 
+                        width={700} 
+                    />
+                </Grid>
                 <Grid item>Search Bar</Grid>    
             </Grid>
         </Grid>

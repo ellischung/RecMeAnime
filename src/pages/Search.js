@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { SearchContext } from '../context/search';
 import AnimeList from '../components/AnimeList';
 import { Box, Typography } from '@material-ui/core';
@@ -10,7 +10,7 @@ const Search = () => {
     // Constantly checks to see if anime data exists
     // Pull from local storage if it doesn't exist; if none from local storage, log error
     useEffect(() => {
-        if (search.animeData == undefined || search.animeData.length === 0) {
+        if (search.animeData === undefined || search.animeData.length === 0) {
             try {
                 search.setData(JSON.parse(localStorage.getItem('myData')));
                 setDataExists(true);

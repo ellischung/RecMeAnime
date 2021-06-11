@@ -1,18 +1,22 @@
 import React, { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { SearchContext } from '../context/search';
 import { FormControl, Input, IconButton, Grid } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import './Home.scss';
 
 const Home = () => {
+    const history = useHistory();
     const search = useContext(SearchContext);
     const [input, setInput] = useState('');
 
+    // Search functionality 
     const handleSearch = (event) => {
         event.preventDefault();
         search.search(input).then((data) => {
-            console.log(data);
             search.setData(data.results);
+            localStorage.setItem('myData', JSON.stringify(data.results));
+            history.push('/search');
         });
     };
 
@@ -25,6 +29,7 @@ const Home = () => {
             alignItems="center"
         >
             <Grid item>
+                {/* Custom site logo */}
                 <Grid item>
                     <img 
                         alt="logo" 
@@ -33,6 +38,7 @@ const Home = () => {
                         width={700} 
                     />
                 </Grid>
+                {/* Search bar from material-ui */}
                 <Grid item>
                     <form className="home__form">
                         <FormControl type="submit" className="home__formControl">

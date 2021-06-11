@@ -19,7 +19,7 @@ function App() {
     setSingleData(data)
   };
 
-  /* Search functionality */
+  /* Search from myanimelist's API */
   const search = (searchString) => {
     return fetch(
       `https://api.jikan.moe/v3/search/anime?q=${searchString}&limit=20`

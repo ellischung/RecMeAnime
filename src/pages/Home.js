@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { SearchContext } from '../context/search';
 import { FormControl, Input, IconButton, Grid } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
@@ -7,14 +7,13 @@ import './Home.scss';
 const Home = () => {
     const search = useContext(SearchContext);
     const [input, setInput] = useState('');
-    // useEffect(() => {
-    //     search.search('Bakemonogatari').then((data) => {
-    //         console.log(data);
-    //     });
-    // }, [search]);
 
     const handleSearch = (event) => {
         event.preventDefault();
+        search.search(input).then((data) => {
+            console.log(data);
+            search.setData(data.results);
+        });
     };
 
     return (

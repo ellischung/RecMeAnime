@@ -25,7 +25,7 @@ const Search = () => {
     return ( 
         // Display components (list + cards for each entry from search)
         <Box mt={2}>
-            {(dataExists && <AnimeList />) || (
+            {(dataExists && <AnimeList data={search.animeData} />) || (
             <Typography variant="h4">Data does not exist</Typography>
             )}
         </Box>

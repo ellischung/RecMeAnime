@@ -7,7 +7,7 @@ const AnimeList = (props) => {
         // Returns list of anime from search results
         <GridList>
             {props.data.map((anime) => (
-                <AnimeCard anime={anime} />
+                <AnimeCard key={anime.mal_id} anime={anime} />
             ))}
         </GridList>
     );

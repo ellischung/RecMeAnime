@@ -8,8 +8,9 @@ const AnimeCard = (props) => {
     const history = useHistory();
     const search = useContext(SearchContext);
 
-    // handler for clicking single anime and redirecting to results page
+    // handler for clicking on an anime and redirecting to results page
     const onClickHandler = () => {
+        // fetch the list of recommendations for the anime
         fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}`)
             .then((response) => response.json())
             .then((data) => {

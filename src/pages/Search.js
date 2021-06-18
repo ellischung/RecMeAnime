@@ -19,7 +19,6 @@ const Search = () => {
                 setDataExists(false);
             }
         }
-        console.log(search.animeData);
     }, [search]);
 
     return ( 

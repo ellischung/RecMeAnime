@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router';
 import { SearchContext } from '../context/search';
 import { Typography, Link, Paper, GridListTile, Grid } from '@material-ui/core';
 import './AnimeCard.scss';
 
 const AnimeCard = (props) => {
+    const history = useHistory();
+    const search = useContext(SearchContext);
+
+    // handler for clicking single anime and redirecting to results page
+    const onClickHandler = () => {
+        fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}`)
+            .then((response) => response.json())
+            .then((data) => {
+                search.setSingle(data);
+                localStorage.setItem('singleData', JSON.stringify(data));
+                history.push('/results');
+            });
+    };
+
     // info to be shown for each individual anime
     const title = 
         props.anime.title.length > 15 
@@ -27,6 +42,9 @@ const AnimeCard = (props) => {
                     <Typography variant="body2" component="h2" paragraph={true}>
                         {synopsis}
                     </Typography>
+                    <Link component="button" variant="body1" style={{marginBottom: 0}} onClick={onClickHandler}>
+                        Select
+                    </Link>
                 </Paper>
             </Grid>
         </GridListTile>

@@ -25,7 +25,7 @@ const Results = () => {
     return (
         // display single anime + recommendations
         <div>
-            {(dataExists && <SingleAnime />) || (
+            {(dataExists && <SingleAnime info={search.singleData} />) || (
                 <Typography variant="h4" component="h2">
                     Data does not exist
                 </Typography>

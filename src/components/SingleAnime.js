@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Grid, Typography, Paper, Link } from "@material-ui/core";
+import { Grid, Typography, Paper} from "@material-ui/core";
 import './SingleAnime.scss'
 
 const SingleAnime = (props) => {
@@ -8,7 +8,7 @@ const SingleAnime = (props) => {
 
     useEffect(() => {
         console.log(title, image_url);
-    }, [props.info]);
+    }, [title, image_url]);
 
     return (
         // display single anime + 10 recommendations

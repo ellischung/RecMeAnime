@@ -63,7 +63,7 @@ export default function SearchAppBar() {
   return (
     <div className={classes.root}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar style={{backgroundColor: '#a9b2c2'}}>
           <Typography className={classes.title} variant="h6" noWrap>
             <img 
               alt="logo" 

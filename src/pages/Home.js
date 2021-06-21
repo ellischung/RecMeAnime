@@ -43,7 +43,7 @@ const Home = () => {
                     <form className="home__form">
                         <FormControl type="submit" className="home__formControl">
                             <Input 
-                                placeholder="Search for an anime..." 
+                                placeholder="Search for an anime!" 
                                 value={input} 
                                 onChange={(event) => setInput(event.target.value)}
                                 className="home__input" 

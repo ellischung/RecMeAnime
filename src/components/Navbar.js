@@ -69,7 +69,7 @@ export default function SearchAppBar() {
               alt="logo" 
               src={`${process.env.PUBLIC_URL}/RecMeAnime-Logo.png`} 
               height={50}
-              width={200}
+              width={225}
               style={{marginTop: "15px"}} 
             />
           </Typography>

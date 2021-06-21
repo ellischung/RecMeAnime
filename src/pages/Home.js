@@ -33,9 +33,10 @@ const Home = () => {
                 <Grid item>
                     <img 
                         alt="logo" 
-                        src={`${process.env.PUBLIC_URL}/RecMeAnime-Logo.png`} 
-                        height={150} 
-                        width={700} 
+                        src={`${process.env.PUBLIC_URL}/watching-anime.gif`} 
+                        height={250} 
+                        width={500} 
+                        style={{marginTop: '20px'}}
                     />
                 </Grid>
                 {/* Search bar from material-ui */}
@@ -43,7 +44,7 @@ const Home = () => {
                     <form className="home__form">
                         <FormControl type="submit" className="home__formControl">
                             <Input 
-                                placeholder="Search for an anime!" 
+                                placeholder="Search for any anime!" 
                                 value={input} 
                                 onChange={(event) => setInput(event.target.value)}
                                 className="home__input" 

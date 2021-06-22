@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
-import { AppBar, Toolbar, Typography, InputBase, fade, makeStyles } from '@material-ui/core';
+import { AppBar, Toolbar, InputBase, fade, makeStyles } from '@material-ui/core';
 import { SearchContext } from '../context/search';
 
 const useStyles = makeStyles((theme) => ({
@@ -81,15 +81,13 @@ export default function SearchAppBar() {
       <AppBar position="static">
         <Toolbar style={{backgroundColor: '#a9b2c2'}}>
           <Link to="/" className={classes.title}>
-            <Typography variant="h6" noWrap>
-              <img 
-                alt="logo" 
-                src={`${process.env.PUBLIC_URL}/RecMeAnime-Logo.png`} 
-                height={50}
-                width={225}
-                style={{marginTop: '15px'}} 
-              />
-            </Typography>
+            <img 
+              alt="logo" 
+              src={`${process.env.PUBLIC_URL}/RecMeAnime-Logo.png`} 
+              height={50}
+              width={225}
+              style={{marginTop: '15px'}} 
+            />
           </Link>
           <form className={classes.search} onSubmit={handleSearch}>
             <div className={classes.searchIcon}>

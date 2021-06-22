@@ -34,20 +34,20 @@ const AnimeCard = (props) => {
     return (
         // formatted individual anime with info displayed here 
         <GridListTile className="animeCard__container">
-            <Grid container item xs={12}>
-                <Paper className="animeCard__paper">
-                    <img src={imageUrl} alt={title} style={{maxHeight: 300}} />
-                    <Typography variant="h5" component="h2">
-                        {title}
-                    </Typography>
-                    <Typography variant="body2" component="h2" paragraph={true}>
-                        {synopsis}
-                    </Typography>
-                    <Link component="button" variant="body1" style={{marginBottom: 0}} onClick={onClickHandler}>
-                        Select
-                    </Link>
-                </Paper>
-            </Grid>
+            <Link onClick={onClickHandler}>
+                <Grid container item xs={12}>
+                    <Paper className="animeCard__paper">
+                        <img src={imageUrl} alt={title} style={{maxHeight: 300}} />
+                        <Typography variant="h5" component="h2">
+                            {title}
+                        </Typography>
+                        <Typography variant="body2" component="h2" paragraph={true}>
+                            {synopsis}
+                        </Typography>
+                        
+                    </Paper>
+                </Grid>
+            </Link>
         </GridListTile>
     );
 };

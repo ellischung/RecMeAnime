@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import Search from './pages/Search';
 import Results from './pages/Results';
 import {SearchContext} from './context/search';
 
@@ -38,9 +37,6 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <Home />
-          </Route>
-          <Route path="/search" exact>
-            <Search />
           </Route>
           <Route path="/results" exact>
             <Results />

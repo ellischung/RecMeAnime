@@ -72,7 +72,7 @@ export default function SearchAppBar() {
       search.setData(data.results);
       localStorage.setItem('myData', JSON.stringify(data.results));
       setInput('');
-      history.push('/search');
+      history.push('/');
     });
   };
 

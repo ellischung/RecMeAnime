@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { useHistory, Link } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import { AppBar, Toolbar, Typography, InputBase, fade, makeStyles } from '@material-ui/core';
+import { SearchContext } from '../context/search';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -59,21 +61,37 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchAppBar() {
   const classes = useStyles();
+  const history = useHistory(); 
+  const search = useContext(SearchContext);
+  const [input, setInput] = useState('');
+
+  // handle search results made from the top navbar; redirects to home
+  const handleSearch = (event) => {
+    event.preventDefault();
+    search.search(input).then((data) => {
+      search.setData(data.results);
+      localStorage.setItem('myData', JSON.stringify(data.results));
+      setInput('');
+      history.push('/search');
+    });
+  };
 
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar style={{backgroundColor: '#a9b2c2'}}>
-          <Typography className={classes.title} variant="h6" noWrap>
-            <img 
-              alt="logo" 
-              src={`${process.env.PUBLIC_URL}/RecMeAnime-Logo.png`} 
-              height={50}
-              width={225}
-              style={{marginTop: "15px"}} 
-            />
-          </Typography>
-          <div className={classes.search}>
+          <Link to="/" className={classes.title}>
+            <Typography variant="h6" noWrap>
+              <img 
+                alt="logo" 
+                src={`${process.env.PUBLIC_URL}/RecMeAnime-Logo.png`} 
+                height={50}
+                width={225}
+                style={{marginTop: '15px'}} 
+              />
+            </Typography>
+          </Link>
+          <form className={classes.search} onSubmit={handleSearch}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
@@ -84,8 +102,10 @@ export default function SearchAppBar() {
                 input: classes.inputInput,
               }}
               inputProps={{ 'aria-label': 'search' }}
+              value={input}
+              onChange={(event) => setInput(event.target.value)}
             />
-          </div>
+          </form>
         </Toolbar>
       </AppBar>
     </div>

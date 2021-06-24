@@ -21,7 +21,7 @@ const AnimeCard = (props) => {
             });
     };
 
-    // info to be shown for each individual anime
+    // info to be shown for each individual anime card
     const title = props.anime.title;
     const imageUrl = props.anime.image_url;
     const score = props.anime.score;
@@ -32,22 +32,20 @@ const AnimeCard = (props) => {
             : props.anime.synopsis;
 
     return (
-        // formatted individual anime with info displayed here 
+        // formatted anime card with info displayed here 
         <GridListTile className="animeCard__container">
             <Link onClick={onClickHandler}>
                 <Grid container item xs={12}>
                     <Paper className="animeCard__paper">
                         <img src={imageUrl} alt={title} style={{maxHeight: 300}} />
-                        <Typography variant="body1" component="h2">
-                            <Tooltip title={title} arrow>
-                                <Button style={{fontSize: "16px", fontWeight: "bold"}}>
-                                    {props.anime.title.length > 15 
-                                        ? `${props.anime.title.substring(0, 15)}...` 
-                                        : props.anime.title
-                                    }
-                                </Button>
-                            </Tooltip>
-                        </Typography>
+                        <Tooltip title={title} placement="top" arrow>
+                            <Button style={{fontSize: "16px", fontWeight: "bold"}}>
+                                {props.anime.title.length > 15 
+                                    ? `${props.anime.title.substring(0, 15)}...` 
+                                    : props.anime.title
+                                }
+                            </Button>
+                        </Tooltip>
                         <Typography variant="body2" component="h2" style={{display: "flex", alignItems: "center", flexWrap: "wrap"}}>
                             <StarBorderIcon fontSize="small" color="primary" />{score}
                         </Typography>

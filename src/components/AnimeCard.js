@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
 import { SearchContext } from '../context/search';
-import { Typography, Link, Paper, GridListTile, Grid } from '@material-ui/core';
+import { Typography, Link, Paper, GridListTile, Grid, Tooltip, Button } from '@material-ui/core';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 import './AnimeCard.scss';
 
 const AnimeCard = (props) => {
@@ -21,11 +22,10 @@ const AnimeCard = (props) => {
     };
 
     // info to be shown for each individual anime
-    const title = 
-        props.anime.title.length > 15 
-            ? `${props.anime.title.substring(0, 15)}...` 
-            : props.anime.title;
+    const title = props.anime.title;
     const imageUrl = props.anime.image_url;
+    const score = props.anime.score;
+    const episodes = props.anime.episodes;
     const synopsis = 
         props.anime.synopsis.length > 30 
             ? `${props.anime.synopsis.substring(0, 30)}...` 
@@ -38,13 +38,25 @@ const AnimeCard = (props) => {
                 <Grid container item xs={12}>
                     <Paper className="animeCard__paper">
                         <img src={imageUrl} alt={title} style={{maxHeight: 300}} />
-                        <Typography variant="h5" component="h2">
-                            {title}
+                        <Typography variant="body1" component="h2">
+                            <Tooltip title={title} arrow>
+                                <Button style={{fontSize: "16px", fontWeight: "bold"}}>
+                                    {props.anime.title.length > 15 
+                                        ? `${props.anime.title.substring(0, 15)}...` 
+                                        : props.anime.title
+                                    }
+                                </Button>
+                            </Tooltip>
+                        </Typography>
+                        <Typography variant="body2" component="h2" style={{display: "flex", alignItems: "center", flexWrap: "wrap"}}>
+                            <StarBorderIcon fontSize="small" color="primary" />{score}
+                        </Typography>
+                        <Typography variant="body2" component="h2" paragraph={true}>
+                            Episodes: {episodes}
                         </Typography>
                         <Typography variant="body2" component="h2" paragraph={true}>
                             {synopsis}
                         </Typography>
-                        
                     </Paper>
                 </Grid>
             </Link>

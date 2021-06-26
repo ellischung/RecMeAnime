@@ -26,10 +26,10 @@ const AnimeCard = (props) => {
     const imageUrl = props.anime.image_url;
     const score = props.anime.score;
     const episodes = props.anime.episodes;
-    const synopsis = 
-        props.anime.synopsis.length > 30 
-            ? `${props.anime.synopsis.substring(0, 30)}...` 
-            : props.anime.synopsis;
+    const synopsis = props.anime.synopsis; 
+    // props.anime.synopsis.length > 30 
+    //     ? `${props.anime.synopsis.substring(0, 30)}...` 
+    //     : props.anime.synopsis;
 
     return (
         // formatted anime card with info displayed here 
@@ -39,11 +39,13 @@ const AnimeCard = (props) => {
                     <Paper className="animeCard__paper">
                         <img src={imageUrl} alt={title} style={{maxHeight: 300}} />
                         <Tooltip title={title} placement="top" arrow>
-                            <Button style={{fontSize: "16px", fontWeight: "bold"}}>
-                                {props.anime.title.length > 15 
-                                    ? `${props.anime.title.substring(0, 15)}...` 
-                                    : props.anime.title
-                                }
+                            <Button>
+                                <Typography variant="h6" component="h2">
+                                    {props.anime.title.length > 15 
+                                        ? `${props.anime.title.substring(0, 15)}...` 
+                                        : props.anime.title
+                                    }
+                                </Typography>
                             </Button>
                         </Tooltip>
                         <Typography variant="body2" component="h2" style={{display: "flex", alignItems: "center", flexWrap: "wrap"}}>
@@ -52,9 +54,13 @@ const AnimeCard = (props) => {
                         <Typography variant="body2" component="h2" paragraph={true}>
                             Episodes: {episodes}
                         </Typography>
-                        <Typography variant="body2" component="h2" paragraph={true}>
-                            {synopsis}
-                        </Typography>
+                        <Tooltip title={synopsis} placement="top" arrow>
+                            <Button variant="outlined" color="primary">
+                                <Typography variant="body2" component="h2">
+                                    Synopsis
+                                </Typography>
+                            </Button>
+                        </Tooltip>
                     </Paper>
                 </Grid>
             </Link>

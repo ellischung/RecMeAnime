@@ -55,7 +55,7 @@ const AnimeCard = (props) => {
                             Episodes: {episodes}
                         </Typography>
                         <Tooltip title={synopsis} placement="top" arrow>
-                            <Button variant="outlined" color="primary">
+                            <Button variant="outlined" color="primary" size="small">
                                 <Typography variant="body2" component="h2">
                                     Synopsis
                                 </Typography>

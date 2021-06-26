@@ -4,7 +4,7 @@ import './SingleAnime.scss'
 
 const SingleAnime = (props) => {
     // information to be displayed for each anime
-    const {title, image_url, episodes, rating, airing, broadcast, score} = props.info;
+    const {title, image_url, episodes, rating, score, synopsis} = props.info;
 
     useEffect(() => {
         console.log(title, image_url);
@@ -30,19 +30,16 @@ const SingleAnime = (props) => {
                         {title}
                     </Typography>
                     <Typography variant="h5" component="h2">
-                        Airing: {String(airing)}
-                    </Typography>
-                    <Typography variant="h5" component="h2">
                         Score: {score}
-                    </Typography>
-                    <Typography variant="h5" component="h2">
-                        Broadcast: {broadcast}
                     </Typography>
                     <Typography variant="h5" component="h2">
                         Rating: {rating}
                     </Typography>
                     <Typography variant="h5" component="h2">
                         Episodes: {episodes}
+                    </Typography>
+                    <Typography variant="h5" component="h2" paragraph={true} style={{width: 1000}}>
+                        {synopsis}
                     </Typography>
                 </Paper>
             </Grid>

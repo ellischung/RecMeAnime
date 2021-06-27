@@ -9,6 +9,7 @@ function App() {
   /* Store all of the anime data we receive from the API here */
   const [animeData, setAnimeData] = useState([]);
   const [singleData, setSingleData] = useState({});
+  const [recData, setRecData] = useState({});
 
   const setData = (data) => {
     setAnimeData(data)
@@ -16,6 +17,10 @@ function App() {
 
   const setSingle = (data) => {
     setSingleData(data)
+  };
+
+  const setRec = (data) => {
+    setRecData(data)
   };
 
   /* Search from myanimelist's API */
@@ -27,7 +32,7 @@ function App() {
 
   return (
     <SearchContext.Provider 
-      value={{search, animeData, setData, singleData, setSingle}}
+      value={{search, animeData, setData, singleData, setSingle, recData, setRec}}
     >
     <Router>
       {/* Navigation bar with home redirect and search */} 

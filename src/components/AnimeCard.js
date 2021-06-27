@@ -11,14 +11,24 @@ const AnimeCard = (props) => {
 
     // handler for clicking on an anime and redirecting to results page
     const onClickHandler = () => {
-        // fetch the list of recommendations for the anime
+        // fetch the anime that was clicked on
         fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}`)
             .then((response) => response.json())
             .then((data) => {
                 search.setSingle(data);
                 localStorage.setItem('singleData', JSON.stringify(data));
-                history.push('/results');
             });
+        // fetch the list of recommendations for said anime (1 + 5 recs)
+        fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}/recommendations`)
+            .then((response) => response.json())
+            .then((data) => {
+                search.setRec(data.recommendations.slice(0, 6));
+                localStorage.setItem('recData', JSON.stringify(data.recommendations.slice(0, 6)));
+                // log list of recs
+                console.log(data.recommendations.slice(0, 6));
+            })
+        // push to results after both fetches
+        history.push('/results');
     };
 
     // info to be shown for each individual anime card

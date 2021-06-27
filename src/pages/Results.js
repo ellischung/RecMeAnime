@@ -19,7 +19,7 @@ const Results = () => {
                 setDataExists(false);
             }
         }
-        console.log(search.singleData);
+        // CHECK FOR REC DATA IN LOCAL STORAGE
     }, [search]);
 
     return (

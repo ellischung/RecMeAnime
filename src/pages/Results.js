@@ -27,17 +27,14 @@ const Results = () => {
         // display single anime + down arrows + recommendations
         <React.Fragment>
             {/* single anime */}
-            <div>
-                {(dataExists && <SingleAnime info={search.singleData} />) || (
-                    <Typography variant="h4" component="h2">
-                        Data does not exist
-                    </Typography>
-                )}
-            </div>
+            {(dataExists && <SingleAnime info={search.singleData} />) || (
+                <Typography variant="h4" component="h2">
+                    Data does not exist
+                </Typography>
+            )}
             {/* down arrows */}
-            <div>
-                <Arrows />
-            </div>
+            <Arrows />
+            {/* recommendations */}
         </React.Fragment>
     );
 };

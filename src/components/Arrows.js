@@ -7,6 +7,7 @@ const Arrows = () => {
     const arrows = ['first', 'second', 'third'];
 
     return (
+        // animated down arrows, keyframes credits to ramachandra
         <Grid
             container
             direction="row" 

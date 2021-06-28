@@ -1,20 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Grid, Typography, Paper} from "@material-ui/core";
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 import './SingleAnime.scss'
 
 const SingleAnime = (props) => {
     // information to be displayed for each anime
-    const {title, image_url, episodes, rating, score, synopsis} = props.info;
-
-    useEffect(() => {
-        console.log(title, image_url);
-    }, [title, image_url]);
+    const {title, image_url, score, episodes, premiered, rating, synopsis} = props.info;
 
     return (
-        // display single anime + 10 recommendations
-        <Grid 
-            container 
-            spacing={10} 
+        // display single anime + at most 10 recommendations
+        <Grid
+            container
+            spacing={10}
             direction="row" 
             justify="center" 
             alignItems="center" 
@@ -29,16 +26,19 @@ const SingleAnime = (props) => {
                     <Typography variant="h4" component="h2">
                         {title}
                     </Typography>
-                    <Typography variant="h5" component="h2">
-                        Score: {score}
-                    </Typography>
-                    <Typography variant="h5" component="h2">
-                        Rating: {rating}
+                    <Typography variant="h5" component="h2" style={{display: "flex", alignItems: "center", flexWrap: "wrap"}}>
+                        <StarBorderIcon fontSize="medium" color="primary" />{score}
                     </Typography>
                     <Typography variant="h5" component="h2">
                         Episodes: {episodes}
                     </Typography>
-                    <Typography variant="h5" component="h2" paragraph={true} style={{width: 1000}}>
+                    <Typography variant="h5" component="h2">
+                        Premiered: {premiered}
+                    </Typography>
+                    <Typography variant="h5" component="h2" paragraph={true}>
+                        Rating: {rating}
+                    </Typography>
+                    <Typography variant="h5" component="h2" style={{width: 1000}}>
                         {synopsis}
                     </Typography>
                 </Paper>

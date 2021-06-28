@@ -1,7 +1,8 @@
-import { Typography } from '@material-ui/core';
 import React, { useState, useEffect, useContext } from 'react';
 import { SearchContext } from '../context/search';
+import { Typography } from '@material-ui/core';
 import SingleAnime from '../components/SingleAnime';
+import Arrows from '../components/Arrows';
 
 const Results = () => {
     const search = useContext(SearchContext);
@@ -23,14 +24,21 @@ const Results = () => {
     }, [search]);
 
     return (
-        // display single anime + recommendations
-        <div>
-            {(dataExists && <SingleAnime info={search.singleData} />) || (
-                <Typography variant="h4" component="h2">
-                    Data does not exist
-                </Typography>
-            )}
-        </div>
+        // display single anime + down arrows + recommendations
+        <React.Fragment>
+            {/* single anime */}
+            <div>
+                {(dataExists && <SingleAnime info={search.singleData} />) || (
+                    <Typography variant="h4" component="h2">
+                        Data does not exist
+                    </Typography>
+                )}
+            </div>
+            {/* down arrows */}
+            <div>
+                <Arrows />
+            </div>
+        </React.Fragment>
     );
 };
 

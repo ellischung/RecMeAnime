@@ -31,16 +31,16 @@ const RecList = (props) => {
     const classes = useStyles();
     
     return (
-        // Returns list of anime from recommendations data (individual rec cards)
-        <div className={classes.root}>
-          <GridList className={classes.gridList} cols={2.5} style={{overflowY: "scroll"}}>
-            {props.data !== null &&
-                props.data.map(() => (
-                    <AnimeRec />
-                ))
-            }
-          </GridList>
-        </div>
+      // Returns list of anime from recommendations data (individual rec cards)
+      <div className={classes.root}>
+        <GridList className={classes.gridList} cols={2.5} style={{overflowY: "scroll"}}>
+          {props.data !== null &&
+            props.data.map(() => (
+              <AnimeRec />
+            ))
+          }
+        </GridList>
+      </div>
     );
 };
 

@@ -9,7 +9,7 @@ function App() {
   // Store all of the anime data we receive from the API here
   const [animeData, setAnimeData] = useState([]);
   const [singleData, setSingleData] = useState({});
-  const [recData, setRecData] = useState({});
+  const [recData, setRecData] = useState([]);
 
   // Set data from search
   const setData = (data) => {

@@ -13,7 +13,7 @@ const Results = () => {
     // Constantly checks to see if data exists for both the single anime and recommendations
     // Pull from local storage if it doesn't exist; if none from local storage, log error
     useEffect(() => {
-        // single anime check
+        // check if single anime data exists
         if(search.singleData === undefined || Object.keys(search.singleData).length === 0) {
             try {
                 search.setSingle(JSON.parse(localStorage.getItem('singleData')));
@@ -23,7 +23,7 @@ const Results = () => {
                 setSingleExists(false);
             }
         }
-        // recommendations check
+        // check if recommendations data exists
         if(search.recData === undefined) {
             try {
                 search.setRec(JSON.parse(localStorage.getItem('recData')));

@@ -3,7 +3,7 @@ import { createContext } from 'react';
 export const SearchContext = createContext({
     animeData: [],
     singleData: {},
-    recData: {},
+    recData: [],
     search: () => {},
     setData: () => {},
     setSingle: () => {},

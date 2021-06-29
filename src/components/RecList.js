@@ -1,5 +1,5 @@
 import React from 'react';
-import AnimeCard from './AnimeCard';
+import AnimeRec from './AnimeRec';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 
@@ -27,21 +27,21 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const AnimeList = (props) => {
+const RecList = (props) => {
     const classes = useStyles();
-
+    
     return (
-      // Returns list of anime from search results (list of anime card components)
-      <div className={classes.root}>
-        <GridList className={classes.gridList} cols={2.5} style={{overflowY: "scroll"}}>
-          {props.data !== null &&
-            props.data.map((anime) => (
-                <AnimeCard key={anime.mal_id} anime={anime} />
-            ))
-          }
-        </GridList>
-      </div>
+        // Returns list of anime from recommendations data (individual rec cards)
+        <div className={classes.root}>
+          <GridList className={classes.gridList} cols={2.5} style={{overflowY: "scroll"}}>
+            {props.data !== null &&
+                props.data.map(() => (
+                    <AnimeRec />
+                ))
+            }
+          </GridList>
+        </div>
     );
 };
 
-export default AnimeList;
+export default RecList;

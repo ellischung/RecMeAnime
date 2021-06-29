@@ -22,10 +22,10 @@ const AnimeCard = (props) => {
         fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}/recommendations`)
             .then((response) => response.json())
             .then((data) => {
-                search.setRec(data.recommendations.slice(0, 6));
-                localStorage.setItem('recData', JSON.stringify(data.recommendations.slice(0, 6)));
+                search.setRec(data.recommendations);
+                localStorage.setItem('recData', JSON.stringify(data.recommendations));
                 // log list of recs
-                console.log(data.recommendations.slice(0, 6));
+                console.log(data.recommendations);
             })
         // push to results after both fetches
         history.push('/results');

@@ -34,8 +34,9 @@ const AnimeRec = (props) => {
                                 </Typography>
                             </Button>
                         </Tooltip>
-                        <Typography variant="body2" component="h2">
-                            User recommendations: {recCount}
+                        <Typography variant="body2" component="h2" style={{display: "flex", alignItems: "center", flexWrap: "wrap"}}>
+                            User recommendations:
+                            <Typography color="primary" variant="h6" component="h2" style={{marginLeft: "5px"}}>{recCount}</Typography>
                         </Typography>
                     </Paper>
                 </Grid>

@@ -1,0 +1,17 @@
+.animeRec__container {
+    margin: 10px;
+}
+
+.animeRec__paper {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.animeRec__paper:hover {
+    background-color: lightgray;
+    opacity: .8;
+}

@@ -35,8 +35,8 @@ const RecList = (props) => {
       <div className={classes.root}>
         <GridList className={classes.gridList} cols={2.5} style={{overflowY: "scroll"}}>
           {props.data !== null &&
-            props.data.map(() => (
-              <AnimeRec />
+            props.data.map((anime) => (
+              <AnimeRec key={anime.mal_id} anime={anime} />
             ))
           }
         </GridList>

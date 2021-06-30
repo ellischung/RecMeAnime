@@ -36,7 +36,7 @@ const AnimeList = (props) => {
         <GridList className={classes.gridList} cols={2.5} style={{overflowY: "scroll"}}>
           {props.data !== null &&
             props.data.map((anime) => (
-                <AnimeCard key={anime.mal_id} anime={anime} />
+              <AnimeCard key={anime.mal_id} anime={anime} />
             ))
           }
         </GridList>

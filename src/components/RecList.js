@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
       width: '100%',
       overflow: 'hidden',
       backgroundColor: theme.palette.background.paper,
+      marginTop: '75px',
     },
     gridList: {
       flexWrap: 'nowrap',

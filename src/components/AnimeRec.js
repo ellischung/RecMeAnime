@@ -1,15 +1,27 @@
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router';
 import { SearchContext } from '../context/search';
 import { Typography, Link, Paper, GridListTile, Grid, Tooltip, Button } from '@material-ui/core';
 import './AnimeRec.scss';
 
 const AnimeRec = (props) => {
-    const history = useHistory();
     const search = useContext(SearchContext);
 
     // handler for clicking on an anime rec (stays on results page)
     const onClickHandler = () => {
+        // fetch the anime that was clicked on
+        fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}`)
+            .then((response) => response.json())
+            .then((data) => {
+                search.setSingle(data);
+                localStorage.setItem('singleData', JSON.stringify(data));
+            });
+        // fetch the list of recommendations for said anime
+        fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}/recommendations`)
+            .then((response) => response.json())
+            .then((data) => {
+                search.setRec(data.recommendations);
+                localStorage.setItem('recData', JSON.stringify(data.recommendations));
+            })
     };
 
     // info to be shown for each individual anime rec

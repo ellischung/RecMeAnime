@@ -8,9 +8,10 @@ import RecList from '../components/RecList';
 const Results = () => {
     const search = useContext(SearchContext);
     const [singleExists, setSingleExists] = useState(true);
+    const [scoreExists, setScoreExists] = useState(true);
     const [recExists, setRecExists] = useState(true);
 
-    // Constantly checks to see if data exists for both the single anime and recommendations
+    // Constantly checks to see if data exists for single anime, scores, and recommendations
     // Pull from local storage if it doesn't exist; if none from local storage, log error
     useEffect(() => {
         // check if single anime data exists
@@ -21,6 +22,16 @@ const Results = () => {
             } catch (error) {
                 console.log(error);
                 setSingleExists(false);
+            }
+        }
+        // check if score data exists
+        if(search.scoreData === undefined) {
+            try {
+                search.setScore(JSON.parse(localStorage.getItem('scoreData')));
+                setScoreExists(true);
+            } catch (error) {
+                console.log(error);
+                setScoreExists(false);
             }
         }
         // check if recommendations data exists
@@ -38,19 +49,17 @@ const Results = () => {
     return (
         // display single anime + down arrows + recommendations
         <React.Fragment>
-            {/* single anime */}
-            {(singleExists && <SingleAnime info={search.singleData} />) || (
-                <Typography variant="h4" component="h2">
-                    Data does not exist
-                </Typography>
+            {/* single anime w/ scores */}
+            {(singleExists && scoreExists
+                ? <SingleAnime info={search.singleData} scores={search.scoreData} />
+                : <Typography variant="h4" component="h2">Data does not exist</Typography>
             )}
             {/* down arrows */}
             <Arrows />
             {/* recommendations */}
-            {(recExists && <RecList data={search.recData} />) || (
-                <Typography variant="h4" component="h2">
-                    Data does not exist
-                </Typography>
+            {(recExists 
+                ? <RecList data={search.recData} />
+                : <Typography variant="h4" component="h2">Data does not exist</Typography>
             )}
         </React.Fragment>
     );

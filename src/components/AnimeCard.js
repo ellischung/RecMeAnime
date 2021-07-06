@@ -18,14 +18,21 @@ const AnimeCard = (props) => {
                 search.setSingle(data);
                 localStorage.setItem('singleData', JSON.stringify(data));
             });
+        // fetch the score stats for said anime
+        fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}/stats`)
+            .then((response) => response.json())
+            .then((data) => {
+                search.setScore(data.scores);
+                localStorage.setItem('scoreData', JSON.stringify(data.scores));
+            });
         // fetch the list of recommendations for said anime
         fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}/recommendations`)
             .then((response) => response.json())
             .then((data) => {
                 search.setRec(data.recommendations);
                 localStorage.setItem('recData', JSON.stringify(data.recommendations));
-            })
-        // push to results after both fetches
+            });
+        // push to results after fetches
         history.push('/results');
     };
 
@@ -35,9 +42,6 @@ const AnimeCard = (props) => {
     const score = props.anime.score;
     const episodes = props.anime.episodes;
     const synopsis = props.anime.synopsis; 
-    // props.anime.synopsis.length > 30 
-    //     ? `${props.anime.synopsis.substring(0, 30)}...` 
-    //     : props.anime.synopsis;
 
     return (
         // formatted anime card with info displayed here 

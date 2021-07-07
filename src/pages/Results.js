@@ -25,7 +25,7 @@ const Results = () => {
             }
         }
         // check if score data exists
-        if(search.scoreData === undefined) {
+        if(search.scoreData === undefined || Object.keys(search.scoreData).length === 0) {
             try {
                 search.setScore(JSON.parse(localStorage.getItem('scoreData')));
                 setScoreExists(true);

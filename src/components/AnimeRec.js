@@ -15,6 +15,13 @@ const AnimeRec = (props) => {
                 search.setSingle(data);
                 localStorage.setItem('singleData', JSON.stringify(data));
             });
+        // fetch the score stats for said anime
+        fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}/stats`)
+            .then((response) => response.json())
+            .then((data) => {
+                search.setScore(data.scores);
+                localStorage.setItem('scoreData', JSON.stringify(data.scores));
+            });
         // fetch the list of recommendations for said anime
         fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}/recommendations`)
             .then((response) => response.json())

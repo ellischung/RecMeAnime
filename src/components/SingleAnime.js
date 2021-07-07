@@ -22,12 +22,28 @@ const SingleAnime = (props) => {
 
     // score stats to be displayed by modal
     const scores = (
-        <div style={{width: "600px", backgroundColor: "lightgray", border: "2px solid #000000"}}>
-            {Object.keys(props.scores).map((score) => (
-                <div>
-                    {score} {props.scores[score].percentage} {props.scores[score].votes}
-                </div>
-            ))}
+        <div style={{width: "800px", backgroundColor: "white", border: "2px solid #000000"}}>
+            {/* Bar graph taken from css-tricks */}
+            <dl>
+                {Object.keys(props.scores).map((score) => (
+                    // each bar's individual percentage and length mapped out here
+                    <dd 
+                        class={
+                            `percentage percentage-${
+                                props.scores[score].percentage < 1 
+                                    ? 1
+                                    : Math.round(props.scores[score].percentage)
+                            }`
+                        }
+                    >
+                        {/* Text next to each bar */}
+                        <span class="score__text">
+                            <Typography variant="h6" component="h2" style={{marginRight: "10px"}}>{score}:</Typography> 
+                            {props.scores[score].votes} votes ({props.scores[score].percentage}%)  
+                        </span>
+                    </dd>
+                ))}
+            </dl>
         </div>
     );
 
@@ -57,7 +73,7 @@ const SingleAnime = (props) => {
                         <div>
                             <Button onClick={handleOpen} variant="outlined" color="primary" size="small" style={{marginLeft: "20px"}}>
                                 <Typography variant="body2" component="h2">
-                                    Stats
+                                    Score stats
                                 </Typography>
                             </Button>
                             <Modal

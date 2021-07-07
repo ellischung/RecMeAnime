@@ -29,7 +29,11 @@ const Home = () => {
     // Search functionality 
     const handleSearch = (event) => {
         event.preventDefault();
-        // calls API search method
+        // alert error message and return if input length is less than 3
+        if (input.length < 3) {
+            alert("Search input must be at least 3 characters!");
+            return;
+        }
         search.search(input).then((data) => {
             search.setData(data.results);
             localStorage.setItem('myData', JSON.stringify(data.results));

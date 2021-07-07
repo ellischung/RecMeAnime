@@ -68,6 +68,11 @@ export default function SearchAppBar() {
   // handle search results made from the top navbar; redirects to home
   const handleSearch = (event) => {
     event.preventDefault();
+    // alert error message and return if input length is less than 3
+    if (input.length < 3) {
+      alert("Search input must be at least 3 characters!");
+      return;
+    }
     search.search(input).then((data) => {
       search.setData(data.results);
       localStorage.setItem('myData', JSON.stringify(data.results));

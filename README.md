@@ -2,7 +2,5 @@
 
 Open up a browser and go to "http:/ellischung.github.io/recmeanime"
 
-# Additional Notes:
-
 
 

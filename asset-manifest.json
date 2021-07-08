@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/RecMeAnime/static/css/main.33ec7899.chunk.css",
-    "main.js": "/RecMeAnime/static/js/main.73b070cf.chunk.js",
-    "main.js.map": "/RecMeAnime/static/js/main.73b070cf.chunk.js.map",
-    "runtime-main.js": "/RecMeAnime/static/js/runtime-main.16684efa.js",
-    "runtime-main.js.map": "/RecMeAnime/static/js/runtime-main.16684efa.js.map",
-    "static/js/2.da93d1d5.chunk.js": "/RecMeAnime/static/js/2.da93d1d5.chunk.js",
-    "static/js/2.da93d1d5.chunk.js.map": "/RecMeAnime/static/js/2.da93d1d5.chunk.js.map",
-    "index.html": "/RecMeAnime/index.html",
-    "static/css/main.33ec7899.chunk.css.map": "/RecMeAnime/static/css/main.33ec7899.chunk.css.map",
-    "static/js/2.da93d1d5.chunk.js.LICENSE.txt": "/RecMeAnime/static/js/2.da93d1d5.chunk.js.LICENSE.txt",
-    "static/media/index.scss": "/RecMeAnime/static/media/anime-background.da3bb49e.png"
+    "main.css": "/recmeanime/static/css/main.76925cbd.chunk.css",
+    "main.js": "/recmeanime/static/js/main.c8759191.chunk.js",
+    "main.js.map": "/recmeanime/static/js/main.c8759191.chunk.js.map",
+    "runtime-main.js": "/recmeanime/static/js/runtime-main.fcbcfec6.js",
+    "runtime-main.js.map": "/recmeanime/static/js/runtime-main.fcbcfec6.js.map",
+    "static/js/2.da93d1d5.chunk.js": "/recmeanime/static/js/2.da93d1d5.chunk.js",
+    "static/js/2.da93d1d5.chunk.js.map": "/recmeanime/static/js/2.da93d1d5.chunk.js.map",
+    "index.html": "/recmeanime/index.html",
+    "static/css/main.76925cbd.chunk.css.map": "/recmeanime/static/css/main.76925cbd.chunk.css.map",
+    "static/js/2.da93d1d5.chunk.js.LICENSE.txt": "/recmeanime/static/js/2.da93d1d5.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/recmeanime/static/media/anime-background.da3bb49e.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.16684efa.js",
+    "static/js/runtime-main.fcbcfec6.js",
     "static/js/2.da93d1d5.chunk.js",
-    "static/css/main.33ec7899.chunk.css",
-    "static/js/main.73b070cf.chunk.js"
+    "static/css/main.76925cbd.chunk.css",
+    "static/js/main.c8759191.chunk.js"
   ]
 }

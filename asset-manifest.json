@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/recmeanime/static/css/main.76925cbd.chunk.css",
-    "main.js": "/recmeanime/static/js/main.c8759191.chunk.js",
-    "main.js.map": "/recmeanime/static/js/main.c8759191.chunk.js.map",
+    "main.js": "/recmeanime/static/js/main.23d8bf9e.chunk.js",
+    "main.js.map": "/recmeanime/static/js/main.23d8bf9e.chunk.js.map",
     "runtime-main.js": "/recmeanime/static/js/runtime-main.fcbcfec6.js",
     "runtime-main.js.map": "/recmeanime/static/js/runtime-main.fcbcfec6.js.map",
     "static/js/2.da93d1d5.chunk.js": "/recmeanime/static/js/2.da93d1d5.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.fcbcfec6.js",
     "static/js/2.da93d1d5.chunk.js",
     "static/css/main.76925cbd.chunk.css",
-    "static/js/main.c8759191.chunk.js"
+    "static/js/main.23d8bf9e.chunk.js"
   ]
 }

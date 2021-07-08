@@ -15,7 +15,7 @@ const Results = () => {
     // Pull from local storage if it doesn't exist; if none from local storage, log error
     useEffect(() => {
         // check if single anime data exists
-        if(search.singleData === undefined || Object.keys(search.singleData).length === 0) {
+        if(search.singleData === undefined /*|| Object.keys(search.singleData).length === 0*/) {
             try {
                 search.setSingle(JSON.parse(localStorage.getItem('singleData')));
                 setSingleExists(true);
@@ -25,7 +25,7 @@ const Results = () => {
             }
         }
         // check if score data exists
-        if(search.scoreData === undefined || Object.keys(search.scoreData).length === 0) {
+        if(search.scoreData === undefined /*|| Object.keys(search.scoreData).length === 0*/) {
             try {
                 search.setScore(JSON.parse(localStorage.getItem('scoreData')));
                 setScoreExists(true);

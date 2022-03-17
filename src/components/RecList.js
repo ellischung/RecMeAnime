@@ -34,7 +34,7 @@ const RecList = (props) => {
     return (
       // Returns list of anime from recommendations data (individual rec cards)
       <div className={classes.root}>
-        <GridList className={classes.gridList} cols={2.5} style={{overflowY: "scroll"}}>
+        <GridList className={classes.gridList} cols={2.5}>
           {props.data !== null &&
             props.data.map((anime) => (
               <AnimeRec key={anime.mal_id} anime={anime} />

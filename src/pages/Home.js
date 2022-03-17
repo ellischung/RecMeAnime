@@ -86,7 +86,7 @@ const Home = () => {
                 </Grid>   
             </Grid>
             {/* Display search results (limit card components to 20) */}
-            <Grid container style={{marginTop: '50px', overflowY: 'scroll'}}>
+            <Grid container style={{marginTop: '10px'}}>
                 {dataExists && <AnimeList data={search.animeData} />}
             </Grid> 
         </Grid>

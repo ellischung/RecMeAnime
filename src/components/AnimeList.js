@@ -33,7 +33,7 @@ const AnimeList = (props) => {
     return (
       // Returns list of anime from search results (list of anime card components)
       <div className={classes.root}>
-        <GridList className={classes.gridList} cols={2.5} style={{overflowY: "scroll"}}>
+        <GridList className={classes.gridList} cols={2.5}>
           {props.data !== null &&
             props.data.map((anime) => (
               <AnimeCard key={anime.mal_id} anime={anime} />

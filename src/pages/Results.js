@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from 'react';
 import { SearchContext } from '../context/search';
 import { Typography } from '@material-ui/core';
 import SingleAnime from '../components/SingleAnime';
-import Arrows from '../components/Arrows';
 import RecList from '../components/RecList';
 
 const Results = () => {
@@ -48,20 +47,18 @@ const Results = () => {
 
     return (
         // display single anime + down arrows + recommendations
-        <React.Fragment>
+        <div style={{overflowX: "hidden"}}>
             {/* single anime w/ scores */}
             {(singleExists && scoreExists
                 ? <SingleAnime info={search.singleData} scores={search.scoreData} />
                 : <Typography variant="h4" component="h2">Data does not exist</Typography>
             )}
-            {/* down arrows */}
-            <Arrows />
             {/* recommendations */}
             {(recExists 
                 ? <RecList data={search.recData} />
                 : <Typography variant="h4" component="h2">Data does not exist</Typography>
             )}
-        </React.Fragment>
+        </div>
     );
 };
 

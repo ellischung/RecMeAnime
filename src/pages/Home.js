@@ -37,7 +37,7 @@ const Home = () => {
         search.search(input).then((data) => {
             search.setData(data.results);
             localStorage.setItem('myData', JSON.stringify(data.results));
-            history.push('/');
+            history.push('/recmeanime');
         });
     };
 

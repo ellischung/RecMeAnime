@@ -77,7 +77,7 @@ export default function SearchAppBar() {
       search.setData(data.results);
       localStorage.setItem('myData', JSON.stringify(data.results));
       setInput('');
-      history.push('/');
+      history.push('/recmeanime');
     });
   };
 
@@ -85,7 +85,7 @@ export default function SearchAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar style={{backgroundColor: '#a9b2c2'}}>
-          <Link to="/" className={classes.title}>
+          <Link to="/recmeanime" className={classes.title}>
             <img 
               alt="logo" 
               src={`${process.env.PUBLIC_URL}/RecMeAnime-Logo.png`} 

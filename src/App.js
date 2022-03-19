@@ -49,13 +49,13 @@ function App() {
       {/* Main content of website with routes */}
       <main>
         <Switch>
-          <Route path="/" exact>
+          <Route path="/recmeanime" exact>
             <Home />
           </Route>
-          <Route path="/results" exact>
+          <Route path="/recmeanime/results" exact>
             <Results />
           </Route>
-          <Redirect to="/" />
+          <Redirect to="/recmeanime" />
         </Switch>
       </main>
     </Router>

@@ -33,7 +33,7 @@ const AnimeCard = (props) => {
                 localStorage.setItem('recData', JSON.stringify(data.recommendations));
             });
         // push to results after fetches
-        history.push('/results');
+        history.push('/recmeanime/results');
     };
 
     // info to be shown for each individual anime card

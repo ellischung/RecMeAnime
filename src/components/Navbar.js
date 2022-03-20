@@ -74,8 +74,8 @@ export default function SearchAppBar() {
       return;
     }
     search.search(input).then((data) => {
-      search.setData(data.results);
-      localStorage.setItem('myData', JSON.stringify(data.results));
+      search.setData(data.data);
+      localStorage.setItem('myData', JSON.stringify(data.data));
       setInput('');
       history.push('/recmeanime');
     });

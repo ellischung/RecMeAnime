@@ -9,32 +9,32 @@ const AnimeRec = (props) => {
     // handler for clicking on an anime rec (stays on results page)
     const onClickHandler = () => {
         // fetch the anime that was clicked on
-        fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}`)
+        fetch(`https://api.jikan.moe/v4/anime/${props.anime.entry.mal_id}`)
             .then((response) => response.json())
             .then((data) => {
-                search.setSingle(data);
-                localStorage.setItem('singleData', JSON.stringify(data));
+                search.setSingle(data.data);
+                localStorage.setItem('singleData', JSON.stringify(data.data));
             });
         // fetch the score stats for said anime
-        fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}/stats`)
+        fetch(`https://api.jikan.moe/v4/anime/${props.anime.entry.mal_id}/statistics`)
             .then((response) => response.json())
             .then((data) => {
-                search.setScore(data.scores);
-                localStorage.setItem('scoreData', JSON.stringify(data.scores));
+                search.setScore(data.data.scores);
+                localStorage.setItem('scoreData', JSON.stringify(data.data.scores));
             });
         // fetch the list of recommendations for said anime
-        fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}/recommendations`)
+        fetch(`https://api.jikan.moe/v4/anime/${props.anime.entry.mal_id}/recommendations`)
             .then((response) => response.json())
             .then((data) => {
-                search.setRec(data.recommendations);
-                localStorage.setItem('recData', JSON.stringify(data.recommendations));
+                search.setRec(data.data);
+                localStorage.setItem('recData', JSON.stringify(data.data));
             })
     };
 
     // info to be shown for each individual anime rec
-    const title = props.anime.title;
-    const imageUrl = props.anime.image_url;
-    const recCount = props.anime.recommendation_count; 
+    const title = props.anime.entry.title;
+    const imageUrl = props.anime.entry.images.jpg.image_url;
+    const recCount = props.anime.votes; 
 
     return (
         // formatted anime rec with info displayed here 
@@ -46,9 +46,9 @@ const AnimeRec = (props) => {
                         <Tooltip title={title} placement="top" arrow>
                             <Button>
                                 <Typography variant="h6" component="h2">
-                                    {props.anime.title.length > 15 
-                                        ? `${props.anime.title.substring(0, 15)}...` 
-                                        : props.anime.title
+                                    {title.length > 15 
+                                        ? `${title.substring(0, 15)}...` 
+                                        : title
                                     }
                                 </Typography>
                             </Button>

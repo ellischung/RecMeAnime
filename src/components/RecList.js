@@ -37,7 +37,7 @@ const RecList = (props) => {
         <GridList className={classes.gridList} cols={2.5}>
           {props.data !== null &&
             props.data.map((anime) => (
-              <AnimeRec key={anime.mal_id} anime={anime} />
+              <AnimeRec key={anime.entry.mal_id} anime={anime} />
             ))
           }
         </GridList>

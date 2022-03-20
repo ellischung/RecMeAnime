@@ -12,25 +12,25 @@ const AnimeCard = (props) => {
     // handler for clicking on an anime and redirecting to results page
     const onClickHandler = () => {
         // fetch the anime that was clicked on
-        fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}`)
+        fetch(`https://api.jikan.moe/v4/anime/${props.anime.mal_id}`)
             .then((response) => response.json())
             .then((data) => {
-                search.setSingle(data);
-                localStorage.setItem('singleData', JSON.stringify(data));
+                search.setSingle(data.data);
+                localStorage.setItem('singleData', JSON.stringify(data.data));
             });
         // fetch the score stats for said anime
-        fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}/stats`)
+        fetch(`https://api.jikan.moe/v4/anime/${props.anime.mal_id}/statistics`)
             .then((response) => response.json())
             .then((data) => {
-                search.setScore(data.scores);
-                localStorage.setItem('scoreData', JSON.stringify(data.scores));
+                search.setScore(data.data.scores);
+                localStorage.setItem('scoreData', JSON.stringify(data.data.scores));
             });
         // fetch the list of recommendations for said anime
-        fetch(`https://api.jikan.moe/v3/anime/${props.anime.mal_id}/recommendations`)
+        fetch(`https://api.jikan.moe/v4/anime/${props.anime.mal_id}/recommendations`)
             .then((response) => response.json())
             .then((data) => {
-                search.setRec(data.recommendations);
-                localStorage.setItem('recData', JSON.stringify(data.recommendations));
+                search.setRec(data.data);
+                localStorage.setItem('recData', JSON.stringify(data.data));
             });
         // push to results after fetches
         history.push('/recmeanime/results');
@@ -38,7 +38,7 @@ const AnimeCard = (props) => {
 
     // info to be shown for each individual anime card
     const title = props.anime.title;
-    const imageUrl = props.anime.image_url;
+    const imageUrl = props.anime.images.jpg.image_url;
     const score = props.anime.score;
     const episodes = props.anime.episodes;
     const synopsis = props.anime.synopsis; 

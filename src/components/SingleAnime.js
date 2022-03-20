@@ -5,7 +5,7 @@ import './SingleAnime.scss'
 
 const SingleAnime = (props) => {
     // information to be displayed for each anime
-    const {title, image_url, score, episodes, premiered, rating, synopsis} = props.info;
+    const {title, score, episodes, rating, synopsis} = props.info;
 
     // state hook for modal
     const [open, setOpen] = useState(false);
@@ -38,7 +38,7 @@ const SingleAnime = (props) => {
                     >
                         {/* Text next to each bar */}
                         <span class="score__text">
-                            <Typography variant="h6" component="h2" style={{marginRight: "10px"}}>{score}:</Typography> 
+                            <Typography variant="h6" component="h2" style={{marginRight: "10px"}}>{props.scores[score].score}:</Typography> 
                             {props.scores[score].votes} votes ({props.scores[score].percentage}%)  
                         </span>
                     </dd>
@@ -59,7 +59,7 @@ const SingleAnime = (props) => {
             className="singleAnime__container"
         >
             <Grid item>
-                <img src={image_url} alt={title} className="singleAnime__image" />
+                <img src={props.info.images && props.info.images.jpg.image_url} alt={title} className="singleAnime__image" />
             </Grid>
             <Grid item>
                 <Paper elevation={3} className="singleAnime__description">
@@ -95,7 +95,7 @@ const SingleAnime = (props) => {
                         Episodes: {episodes}
                     </Typography>
                     <Typography variant="h5" component="h2">
-                        Premiered: {premiered}
+                        Aired: {props.info.aired && props.info.aired.string}
                     </Typography>
                     <Typography variant="h5" component="h2" paragraph={true}>
                         Rating: {rating}

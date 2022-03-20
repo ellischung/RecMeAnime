@@ -35,7 +35,7 @@ function App() {
   // Search from myanimelist's API
   const search = (searchString) => {
     return fetch(
-      `https://api.jikan.moe/v3/search/anime?q=${searchString}&limit=20`
+      `https://api.jikan.moe/v4/anime?q=${searchString}&limit=20`
     ).then((response) => response.json());
   };
 

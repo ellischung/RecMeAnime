@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/recmeanime/static/css/main.12612705.css",
-    "main.js": "/recmeanime/static/js/main.d0e54a71.js",
+    "main.js": "/recmeanime/static/js/main.03a99629.js",
     "static/media/anime-background.png": "/recmeanime/static/media/anime-background.da3bb49e9407cd3d6e0d.png",
     "index.html": "/recmeanime/index.html",
     "main.12612705.css.map": "/recmeanime/static/css/main.12612705.css.map",
-    "main.d0e54a71.js.map": "/recmeanime/static/js/main.d0e54a71.js.map"
+    "main.03a99629.js.map": "/recmeanime/static/js/main.03a99629.js.map"
   },
   "entrypoints": [
     "static/css/main.12612705.css",
-    "static/js/main.d0e54a71.js"
+    "static/js/main.03a99629.js"
   ]
 }
